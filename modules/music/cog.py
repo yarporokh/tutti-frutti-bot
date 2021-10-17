@@ -47,7 +47,7 @@ async def is_audio_requester(ctx):
 
 
 class Music(commands.Cog, name="Music"):
-    """Return random number"""
+    """Play music"""
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
