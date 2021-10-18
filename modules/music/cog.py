@@ -76,7 +76,7 @@ class Music(commands.Cog, name="Music"):
         else:
             raise commands.CommandError("Not in a voice channel.")
 
-    @commands.command(aliases=["resume", "p"])
+    @commands.command(aliases=["resume"])
     @commands.guild_only()
     @commands.check(audio_playing)
     @commands.check(in_voice_channel)
@@ -231,7 +231,7 @@ class Music(commands.Cog, name="Music"):
         else:
             raise commands.CommandError("You must use a valid index.")
 
-    @commands.command(brief="Plays audio from <url>.")
+    @commands.command(aliases=["p"])
     @commands.guild_only()
     async def play(self, ctx, *, url):
         """Plays audio hosted at <url> (or performs a search for <url> and plays the first result)."""
@@ -303,16 +303,14 @@ class Music(commands.Cog, name="Music"):
                     and message.guild.voice_client
                     and message.guild.voice_client.channel
                 ):
-                    # ensure that skip was pressed, that vote skipping is
-                    # enabled, the user is in the channel, and that the bot is
-                    # in a voice channel
+
                     voice_channel = message.guild.voice_client.channel
                     self._vote_skip(voice_channel, user)
-                    # announce vote
+
                     channel = message.channel
                     users_in_channel = len(
                         [member for member in voice_channel.members if not member.bot]
-                    )  # don't count bots
+                    )
                     required_votes = math.ceil(
                         self.config["vote_skip_ratio"] * users_in_channel
                     )
