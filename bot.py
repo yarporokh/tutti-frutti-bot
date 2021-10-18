@@ -6,7 +6,7 @@ from discord.ext import commands
 def main():
     token = os.getenv("DISCORD_TOKEN")
 
-    client = commands.Bot(command_prefix="-")
+    client = commands.Bot(command_prefix="+")
 
     load_dotenv()
 
