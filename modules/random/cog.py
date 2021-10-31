@@ -12,9 +12,9 @@ class Random(commands.Cog, name="Random"):
     async def roll(self, ctx: commands.Context, n1: str = None, n2: str = None):
         """Rolls a given amount of dice
 
-        Example 1: -roll -> random number from 1 to 100
-        Example 2: -roll 54 -> random number from 1 to 54
-        Example 3: -roll 60 - 160 -> random number from 60 to 160
+        Example 1: +roll -> random number from 1 to 100
+        Example 2: +roll 54 -> random number from 1 to 54
+        Example 3: +roll 60 - 160 -> random number from 60 to 160
         """
         try:
             if n1 == None:
